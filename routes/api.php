@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/register', [App\Http\Controllers\API\AuthController::class, 'register']);
 
 Route::post('/login', [App\Http\Controllers\API\AuthController::class, 'login']);
-Route::post('/requestToken', [AuthController::class, 'requestToken']);
+Route::post('/requestToken', [App\Http\Controllers\API\AuthController::class, 'requestToken']);
 
 Route::prefix('v1')->group(function () {
 
