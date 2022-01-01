@@ -79,4 +79,15 @@ class AuthController extends Controller
 
         return $user->createToken($request->device_name)->plainTextToken;
     }
+
+    public function updatePassword(Request $request)
+    {
+        $user = User::find($request->id);
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return [
+            'message' => 'Password has been changed'
+        ];
+    }
 }
