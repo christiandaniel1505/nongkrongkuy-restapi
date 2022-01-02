@@ -28,7 +28,7 @@ Route::prefix('v1')->group(function () {
         });
         Route::get('/getAllCafe', [ListController::class, 'getAllCafe']);
         Route::get('/getMenuCafe/{cafe_id}', [ListController::class, 'getMenuCafe']);
-        Route::post('/updatePassword', [App\Http\Controllers\API\AuthController::class, 'updatePassword']);
+        Route::post('/updateProfile', [App\Http\Controllers\API\AuthController::class, 'updateProfile']);
         Route::post('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
     });
 });

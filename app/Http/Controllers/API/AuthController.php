@@ -83,6 +83,7 @@ class AuthController extends Controller
     public function updatePassword(Request $request)
     {
         $user = User::find($request->id);
+        $user->name = $request->name;
         $user->password = Hash::make($request->password);
         $user->save();
 
