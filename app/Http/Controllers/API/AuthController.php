@@ -83,12 +83,19 @@ class AuthController extends Controller
     public function updatePassword(Request $request)
     {
         $user = User::find($request->id);
-        $user->name = $request->name;
-        $user->password = Hash::make($request->password);
-        $user->save();
-
+        if ($request->name != null) {
+            $user->name = $request->name;
+            $user->save();
+        } else if ($request->password != null) {
+            $user->password = $request->password;
+            $user->save();
+        } else if ($request->name != null && $request->password != null) {
+            $user->name = $request->name;
+            $user->password = $request->password;
+            $user->save();
+        }
         return [
-            'message' => 'Password has been changed'
+            'message' => 'Profile has been updated'
         ];
     }
 }
