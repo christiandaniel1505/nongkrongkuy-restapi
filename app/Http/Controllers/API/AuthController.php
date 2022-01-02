@@ -80,7 +80,7 @@ class AuthController extends Controller
         return $user->createToken($request->device_name)->plainTextToken;
     }
 
-    public function updatePassword(Request $request)
+    public function updateProfile(Request $request)
     {
         $user = User::find($request->id);
         if ($request->name != null) {
