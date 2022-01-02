@@ -19,7 +19,7 @@ Route::post('/register', [App\Http\Controllers\API\AuthController::class, 'regis
 
 Route::post('/login', [App\Http\Controllers\API\AuthController::class, 'login']);
 Route::post('/requestToken', [App\Http\Controllers\API\AuthController::class, 'requestToken']);
-
+Route::post('/updateProfile', [App\Http\Controllers\API\AuthController::class, 'updateProfile']);
 Route::prefix('v1')->group(function () {
 
     Route::group(['middleware' => ['auth:sanctum']], function () {
@@ -28,7 +28,6 @@ Route::prefix('v1')->group(function () {
         });
         Route::get('/getAllCafe', [ListController::class, 'getAllCafe']);
         Route::get('/getMenuCafe/{cafe_id}', [ListController::class, 'getMenuCafe']);
-        Route::post('/updateProfile', [App\Http\Controllers\API\AuthController::class, 'updateProfile']);
         Route::post('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
     });
 });
